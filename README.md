@@ -13,4 +13,4 @@
 > React.js
 > React Router
 > JSX
-> StateManagement
+> State Management
