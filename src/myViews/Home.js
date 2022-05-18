@@ -1,9 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 import BooksShelf from "../components/BooksShelf";
 export default class Home extends Component {
   render() {
-    const [showSearchPage, setShowSearchpage] = useState(false);
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -13,7 +12,10 @@ export default class Home extends Component {
           <BooksShelf />
         </div>
         <div className="open-search">
-          <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
+          <a //onClick={() => setShowSearchpage(!showSearchPage)}
+          >
+            Add a book
+          </a>
         </div>
       </div>
     );

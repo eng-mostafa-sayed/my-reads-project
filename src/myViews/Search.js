@@ -1,13 +1,12 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 export default class Search extends Component {
   render() {
-    const [showSearchPage, setShowSearchpage] = useState(false);
     return (
       <div className="search-books">
         <div className="search-books-bar">
           <a
             className="close-search"
-            onClick={() => setShowSearchpage(!showSearchPage)}
+            // onClick={() => setShowSearchpage(!showSearchPage)}
           >
             Close
           </a>
