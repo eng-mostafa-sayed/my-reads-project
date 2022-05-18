@@ -7,8 +7,6 @@ import Search from "./myViews/Search";
 import Home from "./myViews/Home";
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
   return (
     <div className="app">
       <Routes>
