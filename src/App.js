@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { Switch, Router } from "react-router-dom";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Search from "./myViews/Search";

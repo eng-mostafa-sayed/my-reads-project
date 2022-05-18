@@ -9,7 +9,9 @@ export default class Home extends Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <BooksShelf />
+          <BooksShelf title="Currently Reading" />
+          <BooksShelf title="Want to Read" />
+          <BooksShelf title="read" />
         </div>
         <div className="open-search">
           <a //onClick={() => setShowSearchpage(!showSearchPage)}
