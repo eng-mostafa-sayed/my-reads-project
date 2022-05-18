@@ -7,3 +7,10 @@
 ## Idea
 
 > MyReads is a simple bookshelf application
+
+## Technologies
+
+> React.js
+> React Router
+> JSX
+> StateManagement
