@@ -8,7 +8,7 @@ export default function Search() {
   const getAllBooks = async () => {
     try {
       const data = await getAll();
-      setBooks(data);
+      setResult(data);
       //for testing purposes
       // console.log("data is");
       // console.log(data);
@@ -23,7 +23,7 @@ export default function Search() {
   const query = async (evt) => {
     try {
       const data = await search(evt);
-      setResult(data);
+      setBooks(data);
       //for testing purposes
       console.log("search is");
       console.log(data);
@@ -48,7 +48,7 @@ export default function Search() {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          <BooksShelf books={result} myBooks={books} />
+          <BooksShelf books={books} results={result} setResults={setResult} />
         </ol>
       </div>
     </div>
