@@ -1,23 +1,19 @@
 import React, { Component } from "react";
 import { getAll, search, update } from "../BooksAPI";
 export default function Books(props) {
-  function someMethod() {
-    // Force a render without state change...
-    this.forceUpdate();
-  }
   ///////change the Book shelf from (currentlyReading,wantToRead,Read) to (currentlyReading,wantToRead,Read,none)
-  function changetheBookShelf(shelf) {
-    const newBook = { ...props.book, shelf };
-    update({ id: props.book.id }, shelf)
-      .then(() =>
-        props.setBooks(
-          (books) =>
-            books.map((book) => (book.id === props.book.id ? newBook : book)),
-          someMethod()
-        )
-      )
+  async function changetheBookShelf(shelf) {
+    try {
+      const newBook = { ...props.book, shelf };
+      await update({ id: props.book.id }, shelf);
 
-      .catch((error) => console.log(error));
+      props.setBooks((books) =>
+        books.map((book) => (book.id === props.book.id ? newBook : book))
+      );
+      this.setState(this.state);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
