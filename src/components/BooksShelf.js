@@ -10,7 +10,12 @@ export default function BooksShelf(props) {
       <div className="bookshelf-books">
         <ol className="books-grid">
           {props.books.map((book) => (
-            <Books key={book.id} book={book}></Books>
+            <Books
+              key={book.id}
+              book={book}
+              results={props.result}
+              setResults={props.setResult}
+            ></Books>
           ))}
         </ol>
       </div>
