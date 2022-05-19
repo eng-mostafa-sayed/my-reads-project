@@ -1,8 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
-import { getAll } from "../BooksAPI";
+import { getAll, search } from "../BooksAPI";
 import BooksShelf from "../components/BooksShelf";
 export default function Search() {
   const [books, setBooks] = useState([]);
+  const [result, setResult] = useState([]);
   let allBooksArray = [];
   const getAllBooks = async () => {
     try {
@@ -18,6 +19,9 @@ export default function Search() {
   useEffect(() => {
     getAllBooks();
   }, []);
+  const query = () => {
+    // dummy
+  };
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -25,13 +29,15 @@ export default function Search() {
           Close
         </a>
         <div className="search-books-input-wrapper">
-          <input type="text" placeholder="Search by title, author, or ISBN" />
+          <input
+            type="text"
+            placeholder="Search for a book"
+            onChange={}
+          />
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid">
-          <BooksShelf />
-        </ol>
+        <ol className="books-grid">{/* <BooksShelf /> */}</ol>
       </div>
     </div>
   );
