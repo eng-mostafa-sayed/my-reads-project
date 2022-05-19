@@ -23,7 +23,7 @@ export default function Search() {
   const query = async (evt) => {
     try {
       const data = await search(evt);
-      setBooks(data);
+      setResult(data);
       //for testing purposes
       console.log("search is");
       console.log(data);
@@ -39,11 +39,17 @@ export default function Search() {
           Close
         </a>
         <div className="search-books-input-wrapper">
-          <input type="text" placeholder="Search for a book" onChange={query} />
+          <input
+            type="text"
+            placeholder="Search for a book"
+            onChange={(evt) => query(evt.target.value)}
+          />
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid">{/* <BooksShelf /> */}</ol>
+        <ol className="books-grid">
+          <BooksShelf books={result} />
+        </ol>
       </div>
     </div>
   );
