@@ -9,8 +9,9 @@ export default function Search() {
     try {
       const data = await getAll();
       setBooks(data);
-      console.log("data is");
-      console.log(data);
+      //for testing purposes
+      // console.log("data is");
+      // console.log(data);
       allBooksArray = data;
     } catch (error) {
       console.log(error);
@@ -19,8 +20,17 @@ export default function Search() {
   useEffect(() => {
     getAllBooks();
   }, []);
-  const query = () => {
-    // dummy
+  const query = async (evt) => {
+    try {
+      const data = await search(evt);
+      setBooks(data);
+      //for testing purposes
+      console.log("search is");
+      console.log(data);
+      allBooksArray = data;
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="search-books">
