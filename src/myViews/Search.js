@@ -42,13 +42,13 @@ export default function Search() {
           <input
             type="text"
             placeholder="Search for a book"
-            onChange={(evt) => query(evt.target.value)}
+            onChange={(evt) => query(evt.target.value.trim())}
           />
         </div>
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          <BooksShelf books={result} />
+          <BooksShelf books={result} myBooks={books} />
         </ol>
       </div>
     </div>
