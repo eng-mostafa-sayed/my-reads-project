@@ -29,11 +29,7 @@ export default function Search() {
           Close
         </a>
         <div className="search-books-input-wrapper">
-          <input
-            type="text"
-            placeholder="Search for a book"
-            onChange={}
-          />
+          <input type="text" placeholder="Search for a book" onChange={query} />
         </div>
       </div>
       <div className="search-books-results">
