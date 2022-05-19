@@ -9,9 +9,9 @@ export default function BooksShelf(props) {
       <h2 className="bookshelf-title">{props.title}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {props.allBooks.map((book) => {
+          {if(props.books.length > 0){props.allBooks.map((book) => {
             <Books books={book} />;
-          })}
+          })}}
           ;
         </ol>
       </div>
