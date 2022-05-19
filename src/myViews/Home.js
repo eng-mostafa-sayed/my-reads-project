@@ -39,10 +39,7 @@ export default function Home(allBooks) {
         />
       </div>
       <div className="open-search">
-        <a //onClick={() => setShowSearchpage(!showSearchPage)}
-        >
-          Add a book
-        </a>
+        <a href="/search">Add a book</a>
       </div>
     </div>
   );
