@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default function Books(books) {
+export default function Books(props) {
   return (
     <li>
       <div className="book">
@@ -26,8 +26,8 @@ export default function Books(books) {
             </select>
           </div>
         </div>
-        <div className="book-title">{books.title}</div>
-        <div className="book-authors">{books.author}</div>
+        <div className="book-title">{props.book.title}</div>
+        <div className="book-authors">{props.book.publisher}</div>
       </div>
     </li>
   );
