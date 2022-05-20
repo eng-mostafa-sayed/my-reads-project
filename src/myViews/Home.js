@@ -28,14 +28,17 @@ export default function Home(allBooks) {
       <div className="list-books-content">
         <BooksShelf
           sectionTitle="Currently Reading"
+          setBooks={setBooks}
           books={books.filter((book) => book.shelf == "currentlyReading")}
         />
         <BooksShelf
           sectionTitle="Want to Read"
+          setBooks={setBooks}
           books={books.filter((book) => book.shelf == "wantToRead")}
         />
         <BooksShelf
           sectionTitle="read"
+          setBooks={setBooks}
           books={books.filter((book) => book.shelf == "read")}
         />
       </div>
