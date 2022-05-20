@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { getAll, search } from "../BooksAPI";
+import { Link } from "react-router-dom";
 import BooksShelf from "../components/BooksShelf";
 export default function Search() {
   const [books, setBooks] = useState([]);
@@ -35,9 +36,10 @@ export default function Search() {
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <a className="close-search" href="/">
+        <Link className="close-search" to="/">
           Close
-        </a>
+        </Link>
+
         <div className="search-books-input-wrapper">
           <input
             type="text"

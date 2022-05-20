@@ -29,7 +29,7 @@ export default function Books(props) {
             }}
           ></div>
           <div className="book-shelf-changer">
-            <select>
+            <select value={props.book.shelf}>
               <option value="none" disabled>
                 Move to...
               </option>

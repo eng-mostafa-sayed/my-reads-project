@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import BooksShelf from "../components/BooksShelf";
 import { getAll } from "../BooksAPI";
+import { Link } from "react-router-dom";
 export default function Home(allBooks) {
   const [books, setBooks] = useState([]);
   let allBooksArray = [];
@@ -39,7 +40,7 @@ export default function Home(allBooks) {
         />
       </div>
       <div className="open-search">
-        <a href="/search">Add a book</a>
+        <Link to="/search">Add a book</Link>
       </div>
     </div>
   );
