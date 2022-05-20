@@ -6,7 +6,6 @@ export default function Books(props) {
     try {
       const newBook = { ...props.book, shelf };
       await update({ id: props.book.id }, shelf);
-
       props.setBooks((books) =>
         books.map((book) => (book.id === props.book.id ? newBook : book))
       );
@@ -29,28 +28,18 @@ export default function Books(props) {
             }}
           ></div>
           <div className="book-shelf-changer">
-            <select value={props.book.shelf}>
+            <select
+              id="bookShelf"
+              value={props.book.shelf}
+              onChange={(event) => changetheBookShelf(event.target.value)}
+            >
               <option value="none" disabled>
                 Move to...
               </option>
-              <option
-                value="currentlyReading"
-                onClick={() => changetheBookShelf("currentlyReading")}
-              >
-                Currently Reading
-              </option>
-              <option
-                value="wantToRead"
-                onClick={() => changetheBookShelf("wantToRead")}
-              >
-                Want to Read
-              </option>
-              <option value="read" onClick={() => changetheBookShelf("read")}>
-                Read
-              </option>
-              <option value="none" onClick={() => changetheBookShelf("none")}>
-                None
-              </option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
+              <option value="none">None</option>
             </select>
           </div>
         </div>
