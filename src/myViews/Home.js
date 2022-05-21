@@ -9,16 +9,18 @@ export default function Home(allBooks) {
     try {
       const data = await getAll();
       setBooks(data);
-      console.log("data is");
-      console.log(data);
+      //console.log("data is");
+      //console.log(data);
       allBooksArray = data;
     } catch (error) {
       console.log(error);
     }
   };
+  ///Didmount// on intiating the page
   useEffect(() => {
     getAllBooks();
   }, []);
+
   return (
     <div className="list-books">
       <div className="list-books-title">

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { getAll, search, update } from "../BooksAPI";
 export default function Books(props) {
   ///////change the Book shelf from (currentlyReading,wantToRead,Read) to (currentlyReading,wantToRead,Read,none)
@@ -6,15 +6,18 @@ export default function Books(props) {
     try {
       const newBook = { ...props.book, shelf };
       await update({ id: props.book.id }, shelf);
-      props.setBooks((books) =>
+      props.setBook((books) =>
         books.map((book) => (book.id === props.book.id ? newBook : book))
       );
-      this.setState(this.state);
     } catch (error) {
       console.log(error);
     }
   }
-
+  ///Didupdate// on updating the component
+  // this is to re-render the component when the shelf is changed
+  useEffect(() => {
+    console.log("update effected");
+  }, [props.book]);
   return (
     <li>
       <div className="book">
@@ -27,6 +30,7 @@ export default function Books(props) {
               backgroundImage: `url(${props.book.imageLinks.thumbnail})`,
             }}
           ></div>
+
           <div className="book-shelf-changer">
             <select
               id="bookShelf"
