@@ -1,11 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getAll, search } from "../BooksAPI";
 import { Link } from "react-router-dom";
 import BooksShelf from "../components/BooksShelf";
+
 export default function Search() {
   const [books, setBooks] = useState([]);
   const [result, setResult] = useState([]);
-  let allBooksArray = [];
   const getAllBooks = async () => {
     try {
       const data = await getAll();
@@ -13,7 +13,6 @@ export default function Search() {
       //for testing purposes
       // console.log("data is");
       // console.log(data);
-      allBooksArray = data;
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +27,6 @@ export default function Search() {
       //for testing purposes
       console.log("search is");
       console.log(data);
-      allBooksArray = data;
     } catch (error) {
       console.log(error);
     }
