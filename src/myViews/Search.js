@@ -45,7 +45,12 @@ export default function Search() {
       <div className="search-books-results">
         <ol className="books-grid">
           {errorLog}
-          <BooksShelf books={books} results={result} setResults={setResult} />
+          <BooksShelf
+            books={books}
+            results={result}
+            setResults={setResult}
+            setBooks={setBooks}
+          />
         </ol>
       </div>
     </div>
