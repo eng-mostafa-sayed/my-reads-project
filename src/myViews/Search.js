@@ -6,29 +6,25 @@ import BooksShelf from "../components/BooksShelf";
 export default function Search() {
   const [books, setBooks] = useState([]);
   const [result, setResult] = useState([]);
-  const getAllBooks = async () => {
-    try {
-      const data = await getAll();
-      setResult(data);
-      //for testing purposes
-      // console.log("data is");
-      // console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [errorLog, setErrorLog] = useState([]);
+
   useEffect(() => {
     getAllBooks();
   }, []);
+
+  const getAllBooks = async () => {
+    const data = await getAll();
+    setResult(data);
+  };
+
   const query = async (evt) => {
-    try {
-      const data = await search(evt);
+    const data = await search(evt == "" ? " " : evt);
+    if (data.error) {
+      setBooks([]);
+      setErrorLog(data.error);
+    } else {
       setBooks(data);
-      //for testing purposes
-      console.log("search is");
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      setErrorLog(null);
     }
   };
   return (
@@ -42,12 +38,13 @@ export default function Search() {
           <input
             type="text"
             placeholder="Search for a book"
-            onChange={(evt) => query(evt.target.value.trim())}
+            onChange={(evt) => query(evt.target.value)}
           />
         </div>
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
+          {errorLog}
           <BooksShelf books={books} results={result} setResults={setResult} />
         </ol>
       </div>

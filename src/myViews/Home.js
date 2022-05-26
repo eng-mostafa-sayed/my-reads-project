@@ -4,22 +4,21 @@ import { getAll } from "../BooksAPI";
 import { Link } from "react-router-dom";
 export default function Home(allBooks) {
   const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    getAllBooks();
+  }, []);
+
   let allBooksArray = [];
   const getAllBooks = async () => {
     try {
       const data = await getAll();
       setBooks(data);
-      //console.log("data is");
-      //console.log(data);
       allBooksArray = data;
     } catch (error) {
       console.log(error);
     }
   };
-  ///Didmount// on intiating the page
-  useEffect(() => {
-    getAllBooks();
-  }, []);
 
   return (
     <div className="list-books">
