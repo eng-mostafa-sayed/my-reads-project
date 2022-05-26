@@ -1,17 +1,15 @@
 import React, { Component, useEffect, useState } from "react";
 import { getAll, search, update } from "../BooksAPI";
 export default function Books(props) {
+  const [optionValue, setOptionValue] = useState("none");
   ///////change the Book shelf from (currentlyReading,wantToRead,Read) to (currentlyReading,wantToRead,Read,none)
   async function changetheBookShelf(shelf) {
-    try {
-      const newBook = { ...props.book, shelf };
-      await update({ id: props.book.id }, shelf);
-      props.setBook((books) =>
-        books.map((book) => (book.id === props.book.id ? newBook : book))
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    setOptionValue(shelf);
+    const newBook = { ...props.book, shelf };
+    await update({ id: props.book.id }, shelf);
+    props.setBook((books) =>
+      books.map((book) => (book.id === props.book.id ? newBook : book))
+    );
   }
   ///Didupdate// on updating the component
   // this is to re-render the component when the shelf is changed
@@ -34,13 +32,13 @@ export default function Books(props) {
           <div className="book-shelf-changer">
             <select
               id="bookShelf"
-              value={props.book.shelf}
+              value={optionValue}
               onChange={(event) => changetheBookShelf(event.target.value)}
             >
               <option value="none" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading">Currently Reading</option>
+              <option value="currentlyReading">Currently Readings</option>
               <option value="wantToRead">Want to Read</option>
               <option value="read">Read</option>
               <option value="none">None</option>
